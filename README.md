@@ -18,6 +18,7 @@
   * (Outside of Vultr) Set your root domain's nameservers to ns1.vultr.com and ns2.vultr.com (Ask your domain registrar for how to do this)
 * (Back in Vultr) Click on your username (top right) and go to the API menu option
 * Enable API access and generate an API Key
+  * Underneath 'Access Control' click 'Allow All IPv4 - this is essential as your IP is obviously undetermined (hence why you are using the script..)
 * Copy your API key into the update script 'api_key' variable
 * Enter your root domain into the update script 'root_domain' variable
 * Enter your subdomain the update script 'target_record' variable
