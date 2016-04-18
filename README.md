@@ -24,7 +24,7 @@
 
 ---
 
-#### Automate automate automate mate:
+#### Automate automate automate auto mate:
 If your using a *nix system, add this to your crontab to update every hour:
 > 0 * * * * python /path/to/where/you/saved/update.py >/dev/null 2>&1
 
