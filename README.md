@@ -22,6 +22,7 @@
 * Enter your root domain into the update script 'root_domain' variable
 * Enter your subdomain the update script 'target_record' variable
 * Save that shiz and run the following in your terminal/Windows wannabe blackbox:
+
 > python update.py
 
 ---
