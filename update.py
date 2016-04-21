@@ -25,7 +25,7 @@ target_record_id = False
 # START YOUR ENGINES!!!
 
 # First up find our public IP address
-ip_request = urllib.request.Request(ipify_url, None, vultr_headers)
+ip_request = urllib.request.Request(ipify_url)
 with urllib.request.urlopen(ip_request) as list_response:
     ip_address = json.loads(list_response.read().decode('utf-8'))
     public_ip = ip_address['ip']
