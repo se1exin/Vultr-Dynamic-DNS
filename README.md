@@ -6,7 +6,7 @@
 
 #### How To:
 * Install Python 3  - https://www.google.com.au/webhp?q=how%20to%20install%20python%203
-* Create an account at [Vultr.com](vultr.com) (if you haven't already)
+* Create an account at [Vultr.com](https://www.vultr.com) (if you haven't already)
 * Log in and go to the DNS tab
 * Add your root domain and give it an IP - 111.222.333.444 will do just fine, the script will update it (if you choose to use your root domain as your Dynamic DNS domain)
   * [optional] Within that root domain, add a new subdomain A record that will serve as your Dynamic DNS domain
