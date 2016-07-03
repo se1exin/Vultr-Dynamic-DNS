@@ -7,7 +7,7 @@ import sys
 # Vultr credentials and target DNS records
 api_key = 'vultr_api_key'  # Update with Vultr API Key
 root_domain = 'domain.com'  # Update with root domain name (e.g. 'domain.com')
-target_record = ''  # Update with subdomain name (e.g. 'sub' - for sub.domain.com)
+target_record = ''  # Update with subdomain name (e.g. 'sub' - for sub.domain.com). Leave blank for root domain.
 vultr_headers = {'API-key': api_key}
 
 # Vultr Endpoints
@@ -44,7 +44,7 @@ def slack_log(message):
 # START YOUR ENGINES!!!
 
 # First up find our public IP address
-ip_request = urllib.request.Request(ipify_url, None, vultr_headers)
+ip_request = urllib.request.Request(ipify_url)
 with urllib.request.urlopen(ip_request) as list_response:
     ip_address = json.loads(list_response.read().decode('utf-8'))
     public_ip = ip_address['ip']
