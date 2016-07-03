@@ -27,6 +27,12 @@
 
 ---
 
+#### Log your output to Slack
+If you use Slack you can send your updates to a Slack Channel using [Incoming Webhooks](https://api.slack.com/incoming-webhooks)
+Just add your webhook URL into the *slack_webhook_url* variable and you will get notified when your IP changes, or if any errors occurred while updating
+
+---
+
 #### Automate for realz:
 If your using a *nix system, add this to your crontab to update every hour:
 > 0 * * * * python /path/to/where/you/saved/update.py >/dev/null 2>&1
