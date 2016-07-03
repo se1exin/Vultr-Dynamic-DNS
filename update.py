@@ -60,28 +60,29 @@ if ip_address is not False:
                 # Now we have matched the subdomain we also hav it's RECORD ID.
                 found_record = record
 
-    if found_record is not False and found_record['data'] != public_ip: # Only update if the IP has changed
-        # now update the zone record
-        values = {
-            'domain': root_domain,
-            'RECORDID': found_record['RECORDID'],
-            'name': target_record,
-            'data': public_ip,
-            'ttl': 120
-        }
-        data = urllib.parse.urlencode(values)
-        data = data.encode('ascii')
+    if found_record is not False:
+        if found_record['data'] != public_ip: # Only update if the IP has changed
+            # now update the zone record
+            values = {
+                'domain': root_domain,
+                'RECORDID': found_record['RECORDID'],
+                'name': target_record,
+                'data': public_ip,
+                'ttl': 120
+            }
+            data = urllib.parse.urlencode(values)
+            data = data.encode('ascii')
 
-        update_request = urllib.request.Request(update_url, data, vultr_headers)
-        try:
-            with urllib.request.urlopen(update_request) as update_response:
-                update_result = update_response.read()
-                slack_log('Updated ' + target_record + '.' + root_domain + ' to new IP ' + public_ip)
-        except Exception as err:
-            error_msg = 'Failed to update ' + target_record + '.' + root_domain
-            error_msg += "\nIf you can't figure this one out, please lodge an issue at https://github.com/se1exin/Vultr-Dynamic-DNS with the following error details:\n"
-            error_msg += str(err)
-            slack_log(error_msg)
+            update_request = urllib.request.Request(update_url, data, vultr_headers)
+            try:
+                with urllib.request.urlopen(update_request) as update_response:
+                    update_result = update_response.read()
+                    slack_log('Updated ' + target_record + '.' + root_domain + ' to new IP ' + public_ip)
+            except Exception as err:
+                error_msg = 'Failed to update ' + target_record + '.' + root_domain
+                error_msg += "\nIf you can't figure this one out, please lodge an issue at https://github.com/se1exin/Vultr-Dynamic-DNS with the following error details:\n"
+                error_msg += str(err)
+                slack_log(error_msg)
     else:
         slack_log('Could not find a matching record for subdomain ' + target_record + '.' + root_domain)
 else:
