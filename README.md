@@ -15,6 +15,7 @@
 * (Back in Vultr) Click on your username (top right) and go to the API menu option
 * Enable API access and generate an API Key
   * Underneath 'Access Control' click 'Allow All IPv4' - this is essential as your IP is obviously undetermined (hence why you are using the script..)
+  * If you enabled IPv6 for your instance and your host OS prefers IPv6, you may need to click "Allow All IPv6"
 * Copy your API key into the update script 'api_key' variable
 * Enter your root domain into the update script 'root_domain' variable
 * Enter your subdomain the update script 'target_record' variable, or leave it blank id you are using your root domain for your Dynamic DNS
